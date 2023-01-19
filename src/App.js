@@ -18,12 +18,37 @@ function Btn() {
 	return <button>{logged ? 'Enter' : text}</button>
 }
 
+function WhoAmI({ name, surname, link }) {
+	return (
+		<>
+			<h1>
+				My name is {name()} , surname {surname}
+			</h1>
+			<a href={link}>My profile</a>
+		</>
+	)
+}
+
 function App() {
 	return (
 		<div className="App">
 			<Header />
 			<Field />
 			<Btn />
+			<WhoAmI
+				name={() => {
+					return 'John'
+				}}
+				surname={'Smith'}
+				link={'link'}
+			/>
+			<WhoAmI
+				name={() => {
+					return 'John'
+				}}
+				surname={'Kushnir'}
+				link={'link2'}
+			/>
 		</div>
 	)
 }
