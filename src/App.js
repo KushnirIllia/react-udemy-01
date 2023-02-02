@@ -1,4 +1,5 @@
 // import logo from './logo.svg'
+import { useState } from 'react'
 import './App.css'
 
 const Header = () => {
@@ -17,14 +18,22 @@ function Btn() {
 	const text = 'Log in'
 	return <button>{logged ? 'Enter' : text}</button>
 }
-
 function WhoAmI({ name, surname, link }) {
+	const [position, setPosition] = useState('')
+	const commitInputChanges = (e) => {
+		setPosition(e.target.value)
+	}
+
 	return (
 		<>
 			<h1>
-				My name is {name()} , surname {surname}
+				My name is {name()} , surname - {surname}, position - {position}
 			</h1>
 			<a href={link}>My profile</a>
+			<form>
+				<span>Enter your profession:</span>
+				<input type="text" onChange={commitInputChanges} />
+			</form>
 		</>
 	)
 }
